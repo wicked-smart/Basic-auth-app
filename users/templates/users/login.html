@@ -1,0 +1,19 @@
+{% extends "users/base.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+  {% if message %}
+    <h2> {{ message }} </h2>
+  {% else %}
+  <h1> Login Page </h1>
+  <hr/><br>
+  <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <input name="username" placeholder="username" type="text"/><br>
+    <input name="password" placeholder="password" type="password"/><br>
+    <input type="submit" value="login"/>
+  </form>
+
+  {% endif %}
+{% endblock %}
